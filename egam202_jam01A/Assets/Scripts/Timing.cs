@@ -51,8 +51,6 @@ public class Timing : MonoBehaviour
             Time.timeScale = 0;
         }
 
-
-        Debug.Log(TimeStop);
     }
 
     IEnumerator checking()
