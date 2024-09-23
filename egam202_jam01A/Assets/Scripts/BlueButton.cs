@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedButton : MonoBehaviour
+public class BlueButton : MonoBehaviour
 {
-    SpriteRenderer sr;
     public GameObject playerCharacter;
+    SpriteRenderer sr;
 
 
     // Start is called before the first frame update
@@ -22,6 +22,7 @@ public class RedButton : MonoBehaviour
 
     public void OnPressed()
     {
-        sr.material.color = Color.red;
+        sr.material.color = Color.blue;
     }
+
 }
