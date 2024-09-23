@@ -9,58 +9,56 @@ public class givenColor : MonoBehaviour
     public GameObject tree;
     SpriteRenderer sr;
 
-
-
-    bool colorChange;
+    int changeInt;
 
     // Start is called before the first frame update
     void Start()
     {
         sr = tree.GetComponent<SpriteRenderer>();
-        colorChange = false;
+        changeInt = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale > 0)
+        
+        if (Time.timeScale > 0 && !timer.isChecking)
         {
-            colorChange = false;
-        }
-        else
-        {
-            colorChange = true;
+            nextColor();
         }
 
-        nextColor(colorChange);
+        showColor();
+
+        Debug.Log(changeInt);
+
+
     }
 
-    void nextColor(bool changeable)
+
+    int nextColor()
     {
-
         int randomNumber = Random.Range(1, 3);
+        timer.isChecking = true;
 
-        if (colorChange)
-        {
-            if (randomNumber == 1)
-            {
-                sr.material.color = Color.red;
-            }
-            else if (randomNumber == 2)
-            {
-                sr.material.color = Color.blue;
-            }
-            else if (randomNumber == 3)
-            {
-                sr.material.color = Color.green;
-            }
+        return changeInt = randomNumber;
+    }
 
-            colorChange = false;
-        }
-        else
+    void showColor()
+    {
+        
+        if (changeInt == 1)
         {
-            return;
+            sr.material.color = Color.red;
         }
+        else if (changeInt == 2)
+        {
+            sr.material.color = Color.blue;
+        }
+        else if (changeInt == 3)
+        {
+            sr.material.color = Color.green;
+        }
+
     }
 
  }

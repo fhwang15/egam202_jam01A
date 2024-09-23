@@ -12,6 +12,8 @@ public class Timing : MonoBehaviour
     float delayTime = 3f;
     public bool isChecking;
 
+    public int work;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,6 @@ public class Timing : MonoBehaviour
             StartCoroutine(checking());  
         }
 
-        Debug.Log(Time.deltaTime);
-
 
     }
 
@@ -43,9 +43,12 @@ public class Timing : MonoBehaviour
 
         Time.timeScale = 0;
         timeLeft = maxTime;
+        isChecking = false;
 
         yield return new WaitForSecondsRealtime(delayTime);
         Time.timeScale = 1;
+        isChecking = false;
+
         
     }
 
