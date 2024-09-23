@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Timing : MonoBehaviour
 {
     Image timer;
-    float maxTime = 5f;
+    float maxTime = 3f;
     float timeLeft;
 
-    float delayTime = 3f;
+    float delayTime = 2f;
     public bool isChecking;
 
     public int work;

@@ -15,29 +15,26 @@ public class givenColor : MonoBehaviour
     void Start()
     {
         sr = tree.GetComponent<SpriteRenderer>();
-        changeInt = 0;
+        changeInt = Random.Range(1, 4);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (Time.timeScale > 0 && !timer.isChecking)
+        if (Time.timeScale == 0 && !timer.isChecking)
         {
             nextColor();
         }
 
         showColor();
 
-        Debug.Log(changeInt);
-
-
     }
 
 
     int nextColor()
     {
-        int randomNumber = Random.Range(1, 3);
+        int randomNumber = Random.Range(1, 4);
         timer.isChecking = true;
 
         return changeInt = randomNumber;
