@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class Timing : MonoBehaviour
 {
+    public int TimeStop;
+
+    public GameObject button;
+
     Image timer;
-    float maxTime = 3f;
+    float maxTime = 1f;
     float timeLeft;
 
-    float delayTime = 2f;
+    float delayTime = 1f;
     public bool isChecking;
 
     public int work;
@@ -17,7 +21,14 @@ public class Timing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        TimeStop = 0;
+
+        if(TimeStop == 0)
+        {
+            Time.timeScale = 1;
+        }
+
+
         timer = GetComponent<Image>();
         timeLeft = maxTime;
     }
@@ -35,7 +46,13 @@ public class Timing : MonoBehaviour
             StartCoroutine(checking());  
         }
 
+        if(TimeStop == 1)
+        {
+            Time.timeScale = 0;
+        }
 
+
+        Debug.Log(TimeStop);
     }
 
     IEnumerator checking()

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerCharacter : MonoBehaviour
 {
+
+    public GameObject restartButton;
     public GameObject tree;
     public Snake snake;
 
@@ -22,7 +26,6 @@ public class PlayerCharacter : MonoBehaviour
     void Start()
     {
 
-     
         rendererA = this.gameObject.GetComponent<Renderer>();
         rendererB = tree.GetComponent<Renderer>();
 
@@ -38,7 +41,6 @@ public class PlayerCharacter : MonoBehaviour
         if (Time.timeScale == 0 && !timer.isChecking)
         {
             work();
-            Debug.Log(snake.lifeLeft);
         }
 
     }
@@ -51,7 +53,8 @@ public class PlayerCharacter : MonoBehaviour
         } 
         else
         {
-
+            timer.TimeStop = 1;
+            restartButton.SetActive(true);
         }
     }
 
